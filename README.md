@@ -8,11 +8,11 @@
 ![Favorite Quote!](favorite-quote.png)
 
 ### I will using HTML, CSS, JavaScript, React, Bootstrap for Frontend.
-### I will use Java Programming Language &  Spring Boot for REST API.
-### I will be using JUnit test to test my controller method.
-### I will use postman to test my Rest API.
+### I will use Java Programming Language & Spring Boot for REST API.
+### I will be using JUnit to test my controller method.
+### I will be using postman to test my Rest API.
 ### I will be using MYSQL Database.
 
-# I will be Using Axios, a Javascript library, to communicate with backend.
+### I will be Using Axios, a Javascript library, to communicate with backend.
 
 

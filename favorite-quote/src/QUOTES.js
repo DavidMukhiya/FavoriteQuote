@@ -27,4 +27,11 @@ export const QUOTES = [
     author: "Mister Rogers",
     category: "life",
   },
+  {
+    id: 5,
+    quote:
+      "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
+    author: "Francis of Assisi",
+    category: "inspiring",
+  },
 ];

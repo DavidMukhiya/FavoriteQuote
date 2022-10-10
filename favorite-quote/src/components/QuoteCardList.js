@@ -5,7 +5,8 @@ import QuoteCard from "./QuoteCard";
 
 const QuoteCardList = () => {
   return (
-    <Row className="gx-1 ms-5 me-5">
+   <div className="container">
+     <Row className="gx-1 ms-5 me-5">
       {QUOTES.map((quote) => {
         return (
           <Col xs="4" sm="4" md="4" xl="4" key={quote.id}>
@@ -14,6 +15,7 @@ const QuoteCardList = () => {
         );
       })}
     </Row>
+   </div>
   );
 };
 

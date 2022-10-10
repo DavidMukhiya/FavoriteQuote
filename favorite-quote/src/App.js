@@ -1,9 +1,12 @@
 import "./App.css";
+import QuoteCard from "./components/QuoteCard";
+//import {QUOTES} from "./QUOTES"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Favorite Quote</h1>
+    <div>
+      <QuoteCard/>
     </div>
   );
 }

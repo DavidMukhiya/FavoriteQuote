@@ -1,31 +1,3 @@
-.App-header {
-  background-color: #744b78;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  color: white;
-}
-
-.quotes-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.quote {
-  width: 10rem;
-  height: 10rem;
-  margin: 2rem;
-}
-
-.quote-img {
-  width: 15rem;
-}
-
-.quote-message {
-position: relative;
-
+.nav-custom-style{
+  color:black
 }

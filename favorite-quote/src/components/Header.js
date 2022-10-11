@@ -1,46 +1,47 @@
-import React from 'react'
-import { Nav, NavItem, NavLink } from 'reactstrap'
+import React from "react";
+import { Nav, NavItem, NavLink } from "reactstrap";
+import '../css/headerstyle.css'
 
 const Header = () => {
   return (
-    <Nav>
+      <Nav className="justify-content-center m-4 p-2">
         <NavItem>
-            <NavLink className='nav-link' to='/'>
-                Home
-            </NavLink>
+          <NavLink className="nav-link nav-custom-style" to="/">
+            Home
+          </NavLink>
         </NavItem>
         <NavItem>
-            <NavLink className='nav-link' to='/love'>
-                Love
-            </NavLink>
+          <NavLink className="nav-link nav-custom-style" to="/love">
+            Love
+          </NavLink>
         </NavItem>
         <NavItem>
-            <NavLink className='nav-link' to='/life' >
-                Life
-            </NavLink>
+          <NavLink className="nav-link nav-custom-style" to="/life">
+            Life
+          </NavLink>
         </NavItem>
         <NavItem>
-            <NavLink className='nav-Link' to='/inspiration'>
-                Inspiration
-            </NavLink>
+          <NavLink className="nav-Link nav-custom-style" to="/inspiration">
+            Inspiration
+          </NavLink>
         </NavItem>
         <NavItem>
-            <NavLink className='nav-Link' to='/funny'>
-                Funny
-            </NavLink>
+          <NavLink className="nav-Link nav-custom-style" to="/funny">
+            Funny
+          </NavLink>
         </NavItem>
         <NavItem>
-            <NavLink className='nav-Link' to='/proverb'>
-                Proverb
-            </NavLink>
+          <NavLink className="nav-Link nav-custom-style" to="/proverb">
+            Proverb
+          </NavLink>
         </NavItem>
         <NavItem>
-            <NavLink className='nav-Link' to='/addquotes'>
-                Add Quote
-            </NavLink>
+          <NavLink className="nav-Link nav-custom-style" to="/addquotes">
+            Add Quote
+          </NavLink>
         </NavItem>
-    </Nav>
-  )
-}
+      </Nav>
+  );
+};
 
-export default Header
+export default Header;

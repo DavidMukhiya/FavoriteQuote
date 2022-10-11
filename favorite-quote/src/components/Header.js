@@ -4,7 +4,9 @@ import '../css/headerstyle.css'
 
 const Header = () => {
   return (
-      <Nav className="justify-content-center m-4 p-2">
+      <div>
+        <p className="main-header-title">Favorite Quote</p>
+        <Nav className="justify-content-center m-4 p-2" style={{marginTop:'0%'}}>
         <NavItem>
           <NavLink className="nav-link nav-custom-style" to="/">
             Home
@@ -41,6 +43,7 @@ const Header = () => {
           </NavLink>
         </NavItem>
       </Nav>
+      </div>
   );
 };
 

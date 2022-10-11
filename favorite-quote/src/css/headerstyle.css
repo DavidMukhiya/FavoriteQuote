@@ -1,6 +1,19 @@
 .nav-custom-style{
     color:black;
-    margin-top: 2rem;
     font-size: larger;
     font-family: 'Merienda', cursive;
+    padding-top: 0;
+  }
+
+  .main-header-title{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 2rem;
+    font-family: 'Chewy', cursive;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
   }

@@ -5,7 +5,7 @@ import { Card, CardTitle, CardBody } from "reactstrap";
 const QuoteCard = ({quotes}) => {
   const{author, quote} = quotes;
   return (
-   <Card style={{ textAlign:"center", fontFamily: 'Acme', height: '15rem' , minWidth: '15rem'}} className='pt-3 m-5 mb-5 align-middle'>
+   <Card style={{ textAlign:"center", fontFamily: 'Acme', height: '15rem' , minWidth: '15rem'}} className='p-4 ms-5 mb-5 align-middle'>
     <CardTitle >
       <h1 >{author}</h1>
     </CardTitle>

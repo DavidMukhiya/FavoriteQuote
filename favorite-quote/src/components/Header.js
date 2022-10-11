@@ -1,12 +1,14 @@
 import React from "react";
 import { Nav, NavItem, NavLink } from "reactstrap";
-import '../css/headerstyle.css'
+import "../css/headerstyle.css";
+import SocialSiteIcon from "./SocialSiteIcon";
 
 const Header = () => {
   return (
-      <div>
-        <p className="main-header-title">Favorite Quote</p>
-        <Nav className="justify-content-center m-4 p-2" style={{marginTop:'0%'}}>
+    <div>
+      <p className="main-header-title">Favorite Quote</p>
+
+      <Nav className="justify-content-center mt-3" style={{ marginTop: "0%" }}>
         <NavItem>
           <NavLink className="nav-link nav-custom-style" to="/">
             Home
@@ -43,7 +45,8 @@ const Header = () => {
           </NavLink>
         </NavItem>
       </Nav>
-      </div>
+      <SocialSiteIcon />
+    </div>
   );
 };
 

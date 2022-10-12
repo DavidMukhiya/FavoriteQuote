@@ -34,4 +34,11 @@ export const QUOTES = [
     author: "Francis of Assisi",
     category: "inspiring",
   },
+  {
+    id: 6,
+    quote:
+      "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
+    author: "Francis of Assisi",
+    category: "inspiring",
+  },
 ];

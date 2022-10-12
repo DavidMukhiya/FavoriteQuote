@@ -11,7 +11,7 @@ const SocialSiteIcon = () => {
         <FaFacebook size="2rem" color="white" />
       </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="https:/instagram.com"  target='_blank' rel="noopener noreferrer">
-        <FaTwitter size="2rem" color="white" />
+        <FaTwitter size="2rem" color="white" />&nbsp;
       </a>
     </div>
   );

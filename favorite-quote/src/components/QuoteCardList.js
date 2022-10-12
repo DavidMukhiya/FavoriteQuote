@@ -5,11 +5,11 @@ import QuoteCard from "./QuoteCard";
 
 const QuoteCardList = () => {
   return (
-   <div className="container">
-     <Row className="gx-1 ms-5 me-5">
+   <div className="container justify-content-center">
+     <Row className="gx-4">
       {QUOTES.map((quote) => {
         return (
-          <Col xs="4" sm="4" md="4" xl="4" key={quote.id}>
+          <Col xs="12" sm="6" md="4" xl="4" key={quote.id}>
             <QuoteCard quotes={quote} />
           </Col>
         );

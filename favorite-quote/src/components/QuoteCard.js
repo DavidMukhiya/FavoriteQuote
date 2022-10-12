@@ -1,18 +1,20 @@
 import React from "react";
-import { Card, CardTitle, CardBody } from "reactstrap";
+import { Card, CardTitle, CardBody, CardText } from "reactstrap";
 <style>
 </style>
 const QuoteCard = ({quotes}) => {
   const{author, quote} = quotes;
   return (
-   <Card style={{ textAlign:"center", fontFamily: 'Acme', height: '15rem' , minWidth: '15rem'}} className='p-4 ms-5 mb-5 align-middle'>
+   <Card style={{ textAlign:"center", fontFamily: 'Acme', height: '15rem'}} className='p-4 mb-5 align-middle'>
     <CardTitle >
       <h1 >{author}</h1>
     </CardTitle>
     <CardBody>
+    <CardText>
       <p style={{fontFamily: 'coveat'}}>
         {quote}
       </p>
+      </CardText>
     </CardBody>
    </Card>
   );

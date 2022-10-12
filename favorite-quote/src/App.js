@@ -4,6 +4,7 @@ import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import QuoteCardList from "./components/QuoteCardList";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       {/* <QuoteCard/> */}
       <Header/>
       <QuoteCardList/>
+      <Footer/>
     </div>
   );
 }

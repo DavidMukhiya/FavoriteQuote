@@ -1,9 +1,11 @@
 package com.david.favoritequote.Service;
 import com.david.favoritequote.Entity.Category;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface CategoryService {
     List<Category> getAllCategory();
 

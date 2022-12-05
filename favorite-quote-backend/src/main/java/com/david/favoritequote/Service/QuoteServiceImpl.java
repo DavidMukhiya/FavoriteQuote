@@ -2,15 +2,18 @@ package com.david.favoritequote.Service;
 
 import com.david.favoritequote.Dao.QuoteDao;
 import com.david.favoritequote.Entity.Quote;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.david.favoritequote.Exception.ResourceNotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class QuoteServiceImpl implements QuoteService{
 
-    @Autowired
     private QuoteDao quoteDao;
+
     @Override
     public List<Quote> getAllQuote() {
         return this.quoteDao.findAll();
@@ -18,21 +21,31 @@ public class QuoteServiceImpl implements QuoteService{
 
     @Override
     public Quote getQuoteByID(int quoteID) {
-        return null;
+        Quote quote = this.quoteDao.findById(quoteID).orElseThrow(()->new ResourceNotFoundException("Quote", "ID", quoteID));
+        return quote;
     }
 
     @Override
-    public Quote addQuote(Quote quote) {
-        return null;
+    public ResponseEntity<Quote> addQuote(Quote quote) {
+        Quote newQuote = this.quoteDao.save(quote);
+        return new ResponseEntity<>(newQuote, HttpStatus.CREATED);
     }
 
     @Override
     public ResponseEntity<Quote> updateQuote(int quoteID, Quote quote) {
-        return null;
+        Quote updateQuote = this.quoteDao.findById(quoteID).orElseThrow(()-> new ResourceNotFoundException("Quote", "ID", quoteID));
+        updateQuote.setQuote(quote.getQuote());
+        updateQuote.setAuthor(quote.getAuthor());
+        updateQuote.setCategory(quote.getCategory());
+        updateQuote.setId(quote.getId());
+        this.quoteDao.save(updateQuote);
+        return ResponseEntity.ok(quote);
     }
 
     @Override
     public String deleteQuote(int quoteID) {
-        return null;
+        Quote deleteQuote = this.quoteDao.findById(quoteID).orElseThrow(()-> new ResourceNotFoundException("Quote", "ID", quoteID));
+        this.quoteDao.deleteById(quoteID);
+        return "Quote with ID: "+quoteID+" is deleted";
     }
 }

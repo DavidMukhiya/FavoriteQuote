@@ -17,31 +17,31 @@ public class QuoteController {
     private QuoteService quoteService;
 
     //GET - Getting list of  Quote
-    @GetMapping("/quotes")
+    @GetMapping("/")
     public List<Quote> getAllQuote(){
         return this.quoteService.getAllQuote();
     }
 
     //GET - Getting quote by id
-    @GetMapping("/quotes/{quoteID}")
+    @GetMapping("/{quoteID}")
     public Quote getQuoteByID(@PathVariable String quoteID){
         return this.quoteService.getQuoteByID(Integer.parseInt(quoteID));
     }
 
     //POST-Create Quote
-    @PostMapping("/quotes")
+    @PostMapping("/")
     public ResponseEntity<Quote> addQuote(@RequestBody Quote quote){
         return this.quoteService.addQuote(quote);
     }
 
     //PUT - Update Quote
-    @PutMapping("/quotes/{quoteID}")
-    public ResponseEntity<Quote> updateQuote(@PathVariable String quoteID, @RequestBody Quote quote) {
-        return this.quoteService.updateQuote(Integer.parseInt(quoteID), quote);
+    @PutMapping("/{quoteID}")
+    public ResponseEntity<Quote> updateQuote(@PathVariable Integer quoteID, @RequestBody Quote quote) {
+        return this.quoteService.updateQuote(quoteID, quote);
     }
 
     //DELETE - Delete Quote
-    @DeleteMapping("/quotes/{quoteID}")
+    @DeleteMapping("/{quoteID}")
     public String deleteQuoteByID(@PathVariable String quoteID){
         return this.quoteService.deleteQuote(Integer.parseInt(quoteID));
     }

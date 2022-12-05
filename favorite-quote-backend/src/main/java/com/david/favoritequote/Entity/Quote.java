@@ -8,6 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Quote {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String quote;
     private String author;

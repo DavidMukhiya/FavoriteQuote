@@ -1,0 +1,15 @@
+.quoteformstyles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+}
+
+.invalid-feedback {
+    
+}
+
+.feedback{
+    margin-top: 0.5rem;
+}

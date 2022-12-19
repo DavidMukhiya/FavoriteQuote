@@ -13,3 +13,7 @@
 .feedback{
     margin-top: 0.5rem;
 }
+.inputID::placeholder{
+    color:rgb(4, 1, 7);
+    opacity:1;
+}

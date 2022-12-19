@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Row } from "reactstrap";
 import { QUOTES } from "../QUOTES";
 import QuoteCard from "./QuoteCard";
 
 const QuoteCardList = () => {
+
+  
   return (
    <div className="container justify-content-center">
      <Row className="gx-4">

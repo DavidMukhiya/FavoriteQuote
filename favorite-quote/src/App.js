@@ -3,11 +3,11 @@ import "./App.css";
 //import {QUOTES} from "./QUOTES"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import QuoteCardList from "./components/QuoteCardList";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AddQuote from "./components/AddQuote";
+import ListQuoteComponent from "./components/ListQuoteComponent";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Header/>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<QuoteCardList/>}></Route>
+        <Route path="/" element={<ListQuoteComponent/>}></Route>
         <Route path="addquote" element={<AddQuote/>}></Route>
       </Routes>
       </BrowserRouter>

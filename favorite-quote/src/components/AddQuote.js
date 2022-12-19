@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
 import { MdOutlineArrowDropDown } from "react-icons/md";
-import '../css/quoteformstyle.css'
+import "../css/quoteformstyle.css";
 
 const AddQuote = () => {
   return (
@@ -29,6 +29,7 @@ const AddQuote = () => {
                   Dish Name
                 </Label>
                 <Input
+                  className="inputID"
                   id="author"
                   name="author"
                   placeholder="Author *"
@@ -46,6 +47,7 @@ const AddQuote = () => {
                   Description
                 </Label>
                 <Input
+                  className="inputID"
                   id="textArea"
                   name="textArea"
                   type="textarea"
@@ -81,9 +83,9 @@ const AddQuote = () => {
                     Category
                     <MdOutlineArrowDropDown />
                   </option>
-                  <option>Drink</option>
-                  <option>Veg</option>
-                  <option>Non-Veg/Mixed</option>
+                  <option>Life</option>
+                  <option>Inspiration</option>
+                  <option>Funny</option>
                 </Input>
               </FormGroup>
               {/* <FormGroup>

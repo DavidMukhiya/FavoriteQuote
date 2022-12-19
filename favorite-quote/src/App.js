@@ -13,14 +13,16 @@ function App() {
   return (
     <div>
       {/* <QuoteCard/> */}
-      <Header/>
       <BrowserRouter>
+      <Header/>
+      
       <Routes>
         <Route path="/" element={<ListQuoteComponent/>}></Route>
         <Route path="addquote" element={<AddQuote/>}></Route>
       </Routes>
-      </BrowserRouter>
+      
       <Footer/>
+      </BrowserRouter>
     </div>
   );
 }

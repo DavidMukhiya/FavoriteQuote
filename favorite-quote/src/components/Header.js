@@ -1,8 +1,8 @@
 import React from "react";
-import { Nav, NavItem, NavLink } from "reactstrap";
+import { Nav, NavItem} from "reactstrap";
 import "../css/headerstyle.css";
 import SocialSiteIcon from "./SocialSiteIcon";
-import { NavLink as ReactLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Header = () => {
   return (
@@ -11,37 +11,37 @@ const Header = () => {
 
       <Nav className="justify-content-center mt-3" style={{ marginTop: "0%" }}>
         <NavItem>
-          <NavLink className="nav-link nav-custom-style" to='/'>
+          <NavLink className="nav-link nav-custom-style" to="/">
             Home
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink className="nav-link nav-custom-style" to='/love'>
+          <NavLink className="nav-link nav-custom-style" to="love">
             Love
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink className="nav-link nav-custom-style" to="/life">
+          <NavLink className="nav-link nav-custom-style" to="life">
             Life
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink className="nav-Link nav-custom-style" to="/inspiration">
+          <NavLink className="nav-link nav-custom-style" to="inspiration">
             Inspiration
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink className="nav-Link nav-custom-style" to="/funny">
+          <NavLink className="nav-link nav-custom-style" to="funny">
             Funny
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink className="nav-Link nav-custom-style" to="/proverb">
+          <NavLink className="nav-link nav-custom-style" to="proverb">
             Proverb
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink className="nav-Link nav-custom-style" href="/addquote">
+          <NavLink className="nav-link nav-custom-style" to="addquote">
             Add Quote
           </NavLink>
         </NavItem>

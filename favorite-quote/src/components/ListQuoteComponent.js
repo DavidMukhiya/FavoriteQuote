@@ -36,8 +36,10 @@ const deleteQuote = (quoteId) =>{
        return (
          <Col xs="12" sm="6" md="4" xl="4" key={quote.id}>
            <QuoteCard quotes={quote} />
-           <Link className='btn btn-info' to={`/edit-quote/${quote.id}`}>Update</Link>
+           <div className='text-center'>
+           <Link className='btn btn-light' to={`/edit-quote/${quote.id}`}>Update</Link>
            <button className='btn btn-danger' onClick={()=>deleteQuote(quote.id)} style={{marginLeft:'10px'}} >Delete</button>
+           </div>
          </Col>
        );
      })}

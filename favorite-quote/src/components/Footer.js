@@ -3,7 +3,7 @@ import '../css/footerstyle.css'
 
 const Footer = () => {
   return (
-    <div className='footer'>Always be Happy Keep Smiling</div>
+    <div className='footer mt-4'>Always be Happy Keep Smiling</div>
   )
 }
 

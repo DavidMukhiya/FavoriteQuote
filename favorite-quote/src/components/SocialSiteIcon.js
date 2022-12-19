@@ -3,7 +3,7 @@ import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
 
 const SocialSiteIcon = () => {
   return (
-    <div className="social-site-icon-style justify-content-center mt-3 mb-4">
+    <div className="social-site-icon-style justify-content-center mt-3 mb-3">
       <a href="https:/instagram.com" target='_blank' rel="noopener noreferrer">
         <FaInstagram size="2rem" color="white"/>
       </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

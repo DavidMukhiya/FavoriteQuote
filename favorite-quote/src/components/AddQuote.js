@@ -4,6 +4,7 @@ import { MdOutlineArrowDropDown } from "react-icons/md";
 import "../css/quoteformstyle.css";
 import quoteService from "../services/quote-service";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const AddQuote = () => {
   const [author, setAuthor] = useState("");
@@ -14,13 +15,22 @@ const AddQuote = () => {
 
   const {id} = useParams();
 
-  const saveQuote = (e) => {
+  const saveOrUpdateQuote = (e) => {
     e.preventDefault();
 
     const quotes = { author, quote, category };
-    console.log(quote);
 
-    quoteService
+    //console.log(quote);
+
+    if(id){
+      quoteService.updateQuote(id, quotes).then((response)=>{
+        navigate("/");
+      }).catch(error =>{
+        console.log(error)
+      })
+      
+    }else{
+      quoteService
       .addQuote(quotes)
       .then((response) => {
         console.log(response.data);
@@ -29,12 +39,35 @@ const AddQuote = () => {
       .catch((error) => {
         console.log(error);
       });
+    }
+    
   };
 
-  return (
-    <div>
-      <div className="quoteformstyles">
-        <p
+  useEffect(()=>{
+    quoteService.getQuoteByID(id).then((response)=>{
+      console.log("data"+ response)
+      setAuthor(response.data.author)
+      setQuote(response.data.quote)
+      setCategory(response.data.category)
+    }).catch(error=>{
+      console.log(error)
+    })
+  },[])
+
+  const title = () =>{
+    if(id){
+      return  <p
+          style={{
+            // textTransform: "uppercase",
+            color: "white",
+            fontSize: "1.5rem",
+          }}
+          className="mt-2"
+        >
+          Update Quote
+        </p>
+    }else{
+      <p
           style={{
             textTransform: "uppercase",
             color: "white",
@@ -42,8 +75,15 @@ const AddQuote = () => {
           }}
           className="mt-2"
         >
-          add dish
+          Add Quote
         </p>
+    }
+  }
+  
+  return (
+    <div>
+      <div className="quoteformstyles">
+       {title()}
         <Form>
           <Row>
             <Col>
@@ -148,7 +188,7 @@ const AddQuote = () => {
               marginTop: "1.5rem",
             }}
             className="mx-auto"
-            onClick={(e) => saveQuote(e)}
+            onClick={(e) => saveOrUpdateQuote(e)}
           >
             Add Quote
           </Button>

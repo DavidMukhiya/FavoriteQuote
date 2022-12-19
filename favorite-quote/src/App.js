@@ -19,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ListQuoteComponent/>}></Route>
         <Route path="addquote" element={<AddQuote/>}></Route>
+        <Route path="edit-quote/:id" element={<AddQuote/>}></Route>
       </Routes>
       
       <Footer/>

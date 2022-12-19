@@ -6,6 +6,18 @@ class QuoteService{
     getAllQuotes(){
         return axios.get(QUOTE_BASE_REST_API_URL)
     }
+
+    addQuote(quote){
+        return axios.post(QUOTE_BASE_REST_API_URL, quote)
+    }
+
+    getQuoteByID(quoteID){
+        return axios.get(QUOTE_BASE_REST_API_URL + '/' + quoteID)
+    }
+
+    
 }
+
+
 
 export default new QuoteService();

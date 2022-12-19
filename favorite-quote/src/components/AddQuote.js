@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import "../css/quoteformstyle.css";
+import quoteService from "../services/quote-service";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const AddQuote = () => {
+  const [author, setAuthor] = useState("");
+  const [quote, setQuote] = useState("");
+  const [category, setCategory] = useState("");
+
+  const navigate = useNavigate();
+
+  const {id} = useParams();
+
+  const saveQuote = (e) => {
+    e.preventDefault();
+
+    const quotes = { author, quote, category };
+    console.log(quote);
+
+    quoteService
+      .addQuote(quotes)
+      .then((response) => {
+        console.log(response.data);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <div className="quoteformstyles">
@@ -40,6 +67,8 @@ const AddQuote = () => {
                     margin: "1.5rem 0rem",
                     textAlign: "center",
                   }}
+                  value={author}
+                  onChange={(e) => setAuthor(e.target.value)}
                 />
               </FormGroup>
               <FormGroup>
@@ -49,7 +78,7 @@ const AddQuote = () => {
                 <Input
                   className="inputID"
                   id="textArea"
-                  name="textArea"
+                  name="quote"
                   type="textarea"
                   placeholder="Quote *"
                   style={{
@@ -60,6 +89,8 @@ const AddQuote = () => {
                     textAlign: "center",
                     alignContent: "center",
                   }}
+                  value={quote}
+                  onChange={(e) => setQuote(e.target.value)}
                 />
               </FormGroup>
 
@@ -78,6 +109,8 @@ const AddQuote = () => {
                     textAlign: "center",
                   }}
                   placeholder="Category"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
                   <option>
                     Category
@@ -115,9 +148,13 @@ const AddQuote = () => {
               marginTop: "1.5rem",
             }}
             className="mx-auto"
+            onClick={(e) => saveQuote(e)}
           >
             Add Quote
           </Button>
+          {/* <Link to="/" className="btn btn-danger">
+            Cancel
+          </Link> */}
         </Form>
         '
       </div>

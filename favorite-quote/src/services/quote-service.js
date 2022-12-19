@@ -19,6 +19,10 @@ class QuoteService{
         return axios.put(QUOTE_BASE_REST_API_URL + quoteID, quote)
     }
 
+    deleteQuote(quoteID){
+        return axios.delete(QUOTE_BASE_REST_API_URL + quoteID)
+    }
+
     
 }
 

@@ -7,14 +7,27 @@ import { Link } from 'react-router-dom';
 const ListQuoteComponent = () => {
 const [Quote, setQuote] = useState([])
 
-useEffect(()=>{
+const getAllQuote = ()=>{
   quoteService.getAllQuotes().then((response)=>{
     setQuote(response.data)
     console.log(response.data)
   }).catch(error =>{
     console.log(error);
   })
+}
+
+useEffect(()=>{
+  getAllQuote()
 },[])
+
+const deleteQuote = (quoteId) =>{
+  console.log(quoteId)
+  quoteService.deleteQuote(quoteId).then((response)=>{
+    getAllQuote()
+  }).catch(error => {
+    console.log(error) 
+  })
+}
 
   return (
     <div className="container justify-content-center">
@@ -24,6 +37,7 @@ useEffect(()=>{
          <Col xs="12" sm="6" md="4" xl="4" key={quote.id}>
            <QuoteCard quotes={quote} />
            <Link className='btn btn-info' to={`/edit-quote/${quote.id}`}>Update</Link>
+           <button className='btn btn-danger' onClick={()=>deleteQuote(quote.id)} style={{marginLeft:'10px'}} >Delete</button>
          </Col>
        );
      })}

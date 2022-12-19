@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/quotes")
 public class QuoteController {
@@ -17,25 +18,25 @@ public class QuoteController {
     private QuoteService quoteService;
 
     //GET - Getting list of  Quote
-    @GetMapping("/")
+    @GetMapping
     public List<Quote> getAllQuote(){
         return this.quoteService.getAllQuote();
     }
 
     //GET - Getting quote by id
-    @GetMapping("/{quoteID}")
+    @GetMapping("{quoteID}")
     public Quote getQuoteByID(@PathVariable String quoteID){
         return this.quoteService.getQuoteByID(Integer.parseInt(quoteID));
     }
 
     //POST-Create Quote
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Quote> addQuote(@RequestBody Quote quote){
         return this.quoteService.addQuote(quote);
     }
 
     //PUT - Update Quote
-    @PutMapping("/{quoteID}")
+    @PutMapping("{quoteID}")
     public ResponseEntity<Quote> updateQuote(@PathVariable Integer quoteID, @RequestBody Quote quote) {
         return this.quoteService.updateQuote(quoteID, quote);
     }

@@ -25,8 +25,8 @@ public class QuoteController {
 
     //GET - Getting quote by id
     @GetMapping("{quoteID}")
-    public Quote getQuoteByID(@PathVariable String quoteID){
-        return this.quoteService.getQuoteByID(Integer.parseInt(quoteID));
+    public Quote getQuoteByID(@PathVariable Integer quoteID){
+        return this.quoteService.getQuoteByID(quoteID);
     }
 
     //POST-Create Quote

@@ -1,6 +1,7 @@
 package com.david.favoritequote.Service;
 
 import com.david.favoritequote.Dao.QuoteDao;
+import com.david.favoritequote.Entity.Category;
 import com.david.favoritequote.Entity.Quote;
 import com.david.favoritequote.Exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,16 @@ public class QuoteServiceImpl implements QuoteService{
         Quote deleteQuote = this.quoteDao.findById(quoteID).orElseThrow(()-> new ResourceNotFoundException("Quote", "ID", quoteID));
         this.quoteDao.deleteById(quoteID);
         return "Quote with ID: "+quoteID+" is deleted";
+    }
+
+    @Override
+    public List<Quote> getQuoteByCategory(Integer categoryID) {
+       //Category category = this.quoteDao.findById(categoryID).orElseThrow(()-> new ResourceNotFoundException("Quote Category", "ID", categoryID ));
+        return null;
+    }
+
+    @Override
+    public List<Quote> searchQuote(String keyword) {
+        return null;
     }
 }

@@ -1,9 +1,6 @@
 package com.david.favoritequote.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Quote {
@@ -12,12 +9,16 @@ public class Quote {
     private int id;
     private String quote;
     private String author;
-    private String category;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+
 
     public Quote() {
     }
 
-    public Quote(int id, String quote, String author, String category) {
+    public Quote(int id, String quote, String author, Category category) {
         this.id = id;
         this.quote = quote;
         this.author = author;
@@ -48,11 +49,11 @@ public class Quote {
         this.author = author;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 }

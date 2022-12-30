@@ -1,5 +1,6 @@
 package com.david.favoritequote.Service;
 
+import com.david.favoritequote.Dao.CategoryDao;
 import com.david.favoritequote.Dao.QuoteDao;
 import com.david.favoritequote.Entity.Category;
 import com.david.favoritequote.Entity.Quote;
@@ -16,6 +17,9 @@ public class QuoteServiceImpl implements QuoteService{
     @Autowired
     private QuoteDao quoteDao;
 
+    @Autowired
+    private CategoryDao categoryDao;
+
     @Override
     public List<Quote> getAllQuote() {
         return this.quoteDao.findAll();
@@ -28,8 +32,11 @@ public class QuoteServiceImpl implements QuoteService{
     }
 
     @Override
-    public ResponseEntity<Quote> addQuote(Quote quote) {
+    public ResponseEntity<Quote> addQuote(Quote quote, Integer CategoryID) {
+        Category category = this.categoryDao.findById(CategoryID).orElseThrow(()-> new ResourceNotFoundException("Category ID", "ID", CategoryID));
         Quote newQuote = this.quoteDao.save(quote);
+        newQuote.setCategory(category);
+        this.quoteDao.save(newQuote);
         return new ResponseEntity<>(newQuote, HttpStatus.CREATED);
     }
 

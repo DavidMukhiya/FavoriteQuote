@@ -1,7 +1,6 @@
 package com.david.favoritequote.Entity;
 
 import javax.persistence.*;
-
 @Entity
 public class Quote {
     @Id

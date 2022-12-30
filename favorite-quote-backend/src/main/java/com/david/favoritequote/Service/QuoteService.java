@@ -14,7 +14,7 @@ public interface QuoteService {
 
     Quote getQuoteByID(int quoteID);
 
-    ResponseEntity<Quote> addQuote(Quote quote);
+    ResponseEntity<Quote> addQuote(Quote quote, Integer categoryID);
 
     ResponseEntity<Quote> updateQuote(int quoteID, Quote quote);
 

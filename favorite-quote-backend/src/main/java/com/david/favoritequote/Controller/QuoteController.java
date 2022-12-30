@@ -1,6 +1,9 @@
 package com.david.favoritequote.Controller;
 
+import com.david.favoritequote.Dao.CategoryDao;
+import com.david.favoritequote.Entity.Category;
 import com.david.favoritequote.Entity.Quote;
+import com.david.favoritequote.Service.CategoryService;
 import com.david.favoritequote.Service.QuoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,9 +33,9 @@ public class QuoteController {
     }
 
     //POST-Create Quote
-    @PostMapping
-    public ResponseEntity<Quote> addQuote(@RequestBody Quote quote){
-        return this.quoteService.addQuote(quote);
+    @PostMapping("/category/{categoryID}/quotes")
+    public ResponseEntity<Quote> addQuotes(@RequestBody Quote quote, @PathVariable int CategoryID){
+        return this.quoteService.addQuote(quote, CategoryID);
     }
 
     //PUT - Update Quote

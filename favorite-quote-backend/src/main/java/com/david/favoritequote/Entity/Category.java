@@ -1,5 +1,6 @@
 package com.david.favoritequote.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,5 +22,6 @@ public class Category {
     @Column(name = "description")
     private String categoryDescription;
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Quote> quotes = new ArrayList<>();
 }

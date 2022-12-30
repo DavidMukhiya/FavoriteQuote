@@ -33,7 +33,7 @@ public class QuoteController {
     }
 
     //POST-Create Quote
-    @PostMapping("/category/{categoryID}/quotes")
+    @PostMapping("/category/{CategoryID}")
     public ResponseEntity<Quote> addQuotes(@RequestBody Quote quote, @PathVariable int CategoryID){
         return this.quoteService.addQuote(quote, CategoryID);
     }

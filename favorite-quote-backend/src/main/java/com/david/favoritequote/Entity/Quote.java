@@ -1,5 +1,7 @@
 package com.david.favoritequote.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 @Entity
 public class Quote {
@@ -10,6 +12,7 @@ public class Quote {
     private String author;
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @JsonBackReference
     private Category category;
 
 

@@ -20,7 +20,7 @@ class QuoteService {
   }
 
   getQuoteByID(quoteID) {
-    return axios.get(`${QUOTE_BASE_REST_API_URL}`, quoteID);
+    return axios.get(`${QUOTE_BASE_REST_API_URL}+${quoteID}`);
   }
 
   updateQuote(quoteID, quote) {

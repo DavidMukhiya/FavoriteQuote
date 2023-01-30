@@ -64,7 +64,7 @@ const AddQuote = () => {
         console.log("data" + response);
         setAuthor(response.data.author);
         setQuote(response.data.quote);
-        setCategoryID(response.data.category);
+        setCategoryID(response.data.categoryID);
       })
       .catch((error) => {
         console.log(error);

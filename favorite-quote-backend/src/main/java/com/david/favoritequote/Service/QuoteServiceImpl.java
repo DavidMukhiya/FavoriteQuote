@@ -59,8 +59,9 @@ public class QuoteServiceImpl implements QuoteService{
 
     @Override
     public List<Quote> getQuoteByCategory(Integer categoryID) {
-       //Category category = this.quoteDao.findById(categoryID).orElseThrow(()-> new ResourceNotFoundException("Quote Category", "ID", categoryID ));
-        return null;
+       Category category = this.categoryDao.findById(categoryID).orElseThrow(()-> new ResourceNotFoundException("Quote Category", "ID", categoryID ));
+       List<Quote> quotesByCategory = this.quoteDao.findByCategory(category);
+        return quotesByCategory;
     }
 
     @Override

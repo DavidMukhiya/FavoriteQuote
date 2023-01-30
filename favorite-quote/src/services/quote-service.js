@@ -1,30 +1,35 @@
-import axios from 'axios'
+import axios from "axios";
 
-const QUOTE_BASE_REST_API_URL = 'http://localhost:9090/api/quotes/';
+const QUOTE_BASE_REST_API_URL = "http://localhost:9090/api/quotes/";
 
-class QuoteService{
-    getAllQuotes(){
-        return axios.get(QUOTE_BASE_REST_API_URL)
-    }
+class QuoteService {
+  getAllQuotes() {
+    return axios.get(QUOTE_BASE_REST_API_URL);
+  }
 
-    addQuote(quote, categoryID){
-        return axios.post(QUOTE_BASE_REST_API_URL + "/category" + categoryID , quote)
-    }
+  // addQuote(quote){
+  //     return axios.post(QUOTE_BASE_REST_API_URL, quote)
+  // }
 
-    getQuoteByID(quoteID){
-        return axios.get(QUOTE_BASE_REST_API_URL + quoteID)
-    }
+  addQuote(quote) {
+    console.log(quote);
+    return axios.post(
+      `${QUOTE_BASE_REST_API_URL}category/${quote.categoryID}/`,
+      quote
+    );
+  }
 
-    updateQuote(quoteID, quote){
-        return axios.put(QUOTE_BASE_REST_API_URL + quoteID, quote)
-    }
+  getQuoteByID(quoteID) {
+    return axios.get(`${QUOTE_BASE_REST_API_URL}`, quoteID);
+  }
 
-    deleteQuote(quoteID){
-        return axios.delete(QUOTE_BASE_REST_API_URL + quoteID)
-    }
-    
+  updateQuote(quoteID, quote) {
+    return axios.put(QUOTE_BASE_REST_API_URL + quoteID, quote);
+  }
+
+  deleteQuote(quoteID) {
+    return axios.delete(QUOTE_BASE_REST_API_URL + quoteID);
+  }
 }
-
-
 
 export default new QuoteService();

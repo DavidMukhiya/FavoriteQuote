@@ -3,18 +3,19 @@ import { Form, FormGroup, Input, Label, Button, Row, Col } from "reactstrap";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import "../css/quoteformstyle.css";
 import quoteService from "../services/quote-service";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import CategoryService from "../services/category-service";
+import categoryService from "../services/category-service";
 
 const AddQuote = () => {
   const [author, setAuthor] = useState("");
   const [quote, setQuote] = useState("");
-  const [category, setCategory] = useState();
+  const [categoryID, setCategoryID] = useState();
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    CategoryService.getAllCategory()
+    categoryService
+      .getAllCategory()
       .then((response) => {
         console.log(response.data);
         setCategories(response.data);
@@ -30,7 +31,7 @@ const AddQuote = () => {
   const saveOrUpdateQuote = (e) => {
     e.preventDefault();
 
-    const quotes = { author, quote, category };
+    const quotes = { author, quote, categoryID };
 
     //console.log(quote);
 
@@ -63,7 +64,7 @@ const AddQuote = () => {
         console.log("data" + response);
         setAuthor(response.data.author);
         setQuote(response.data.quote);
-        setCategory(response.data.category);
+        setCategoryID(response.data.category);
       })
       .catch((error) => {
         console.log(error);
@@ -103,7 +104,7 @@ const AddQuote = () => {
       <div className="quoteformstyles">
         {JSON.stringify(author)}
         {JSON.stringify(quote)}
-        {JSON.stringify(category)}
+        {JSON.stringify(categoryID)}
         {title()}
         <Form>
           <Row>
@@ -170,14 +171,18 @@ const AddQuote = () => {
                     textAlign: "center",
                   }}
                   placeholder="Category"
-                  onChange={(e) => setCategory(e.target.value)}
+                  onChange={(e) => setCategoryID(e.target.value)}
+                  defaultValue={0}
                 >
-                  <option>
+                  <option disabled value={0}>
                     Category
                     <MdOutlineArrowDropDown />
                   </option>
                   {categories.map((category) => (
-                    <option value={category.categoryID} key={category.categoryID}>
+                    <option
+                      value={category.categoryID}
+                      key={category.categoryID}
+                    >
                       {category.categoryTitle}
                     </option>
                   ))}

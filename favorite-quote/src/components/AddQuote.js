@@ -10,9 +10,8 @@ import CategoryService from "../services/category-service";
 const AddQuote = () => {
   const [author, setAuthor] = useState("");
   const [quote, setQuote] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState();
   const [categories, setCategories] = useState([]);
-
 
   useEffect(() => {
     CategoryService.getAllCategory()
@@ -102,6 +101,9 @@ const AddQuote = () => {
   return (
     <div>
       <div className="quoteformstyles">
+        {JSON.stringify(author)}
+        {JSON.stringify(quote)}
+        {JSON.stringify(category)}
         {title()}
         <Form>
           <Row>
@@ -158,8 +160,8 @@ const AddQuote = () => {
                   Category
                 </Label>
                 <Input
-                  id="exampleSelect"
-                  name="select"
+                  id="category"
+                  name="category"
                   type="select"
                   style={{
                     backgroundColor: "white",
@@ -168,15 +170,16 @@ const AddQuote = () => {
                     textAlign: "center",
                   }}
                   placeholder="Category"
-                  value={category}
                   onChange={(e) => setCategory(e.target.value)}
                 >
                   <option>
                     Category
                     <MdOutlineArrowDropDown />
                   </option>
-                  {categories.map((category)=>(
-                    <option key={category.categoryID} >{category.categoryTitle}</option>
+                  {categories.map((category) => (
+                    <option value={category.categoryID} key={category.categoryID}>
+                      {category.categoryTitle}
+                    </option>
                   ))}
                 </Input>
               </FormGroup>

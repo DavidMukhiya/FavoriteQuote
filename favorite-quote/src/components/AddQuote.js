@@ -5,15 +5,28 @@ import "../css/quoteformstyle.css";
 import quoteService from "../services/quote-service";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import CategoryService from "../services/category-service";
 
 const AddQuote = () => {
   const [author, setAuthor] = useState("");
   const [quote, setQuote] = useState("");
   const [category, setCategory] = useState("");
+  const [categories, setCategories] = useState([]);
 
+
+  useEffect(() => {
+    CategoryService.getAllCategory()
+      .then((response) => {
+        console.log(response.data);
+        setCategories(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   const navigate = useNavigate();
 
-  const {id} = useParams();
+  const { id } = useParams();
 
   const saveOrUpdateQuote = (e) => {
     e.preventDefault();
@@ -22,41 +35,46 @@ const AddQuote = () => {
 
     //console.log(quote);
 
-    if(id){
-      quoteService.updateQuote(id, quotes).then((response)=>{
-        navigate("/");
-      }).catch(error =>{
-        console.log(error)
-      })
-      
-    }else{
+    if (id) {
       quoteService
-      .addQuote(quotes)
+        .updateQuote(id, quotes)
+        .then((response) => {
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      quoteService
+        .addQuote(quotes)
+        .then((response) => {
+          console.log(response.data);
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
+  useEffect(() => {
+    quoteService
+      .getQuoteByID(id)
       .then((response) => {
-        console.log(response.data);
-        navigate("/");
+        console.log("data" + response);
+        setAuthor(response.data.author);
+        setQuote(response.data.quote);
+        setCategory(response.data.category);
       })
       .catch((error) => {
         console.log(error);
       });
-    }
-    
-  };
+  }, []);
 
-  useEffect(()=>{
-    quoteService.getQuoteByID(id).then((response)=>{
-      console.log("data"+ response)
-      setAuthor(response.data.author)
-      setQuote(response.data.quote)
-      setCategory(response.data.category)
-    }).catch(error=>{
-      console.log(error)
-    })
-  },[])
-
-  const title = () =>{
-    if(id){
-      return  <p
+  const title = () => {
+    if (id) {
+      return (
+        <p
           style={{
             // textTransform: "uppercase",
             color: "white",
@@ -66,24 +84,25 @@ const AddQuote = () => {
         >
           Update Quote
         </p>
-    }else{
+      );
+    } else {
       <p
-          style={{
-            textTransform: "uppercase",
-            color: "white",
-            fontSize: "1.5rem",
-          }}
-          className="mt-2"
-        >
-          Add Quote
-        </p>
+        style={{
+          textTransform: "uppercase",
+          color: "white",
+          fontSize: "1.5rem",
+        }}
+        className="mt-2"
+      >
+        Add Quote
+      </p>;
     }
-  }
-  
+  };
+
   return (
     <div>
       <div className="quoteformstyles">
-       {title()}
+        {title()}
         <Form>
           <Row>
             <Col>
@@ -156,9 +175,9 @@ const AddQuote = () => {
                     Category
                     <MdOutlineArrowDropDown />
                   </option>
-                  <option>Life</option>
-                  <option>Inspiration</option>
-                  <option>Funny</option>
+                  {categories.map((category)=>(
+                    <option key={category.categoryID} >{category.categoryTitle}</option>
+                  ))}
                 </Input>
               </FormGroup>
               {/* <FormGroup>

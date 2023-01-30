@@ -3,7 +3,7 @@ import { Col, Row } from 'reactstrap';
 import quoteService from '../services/quote-service';
 import QuoteCard from './QuoteCard';
 import { Link } from 'react-router-dom';
-
+//import categoryService from '../services/category-service';
 const ListQuoteComponent = () => {
 const [Quote, setQuote] = useState([])
 

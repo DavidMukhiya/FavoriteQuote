@@ -7,8 +7,8 @@ class QuoteService{
         return axios.get(QUOTE_BASE_REST_API_URL)
     }
 
-    addQuote(quote){
-        return axios.post(QUOTE_BASE_REST_API_URL, quote)
+    addQuote(quote, categoryID){
+        return axios.post(QUOTE_BASE_REST_API_URL + "/category" + categoryID , quote)
     }
 
     getQuoteByID(quoteID){
@@ -22,7 +22,6 @@ class QuoteService{
     deleteQuote(quoteID){
         return axios.delete(QUOTE_BASE_REST_API_URL + quoteID)
     }
-
     
 }
 
